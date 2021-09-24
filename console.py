@@ -6,6 +6,7 @@ from models.member import Member
 
 import repositories.member_repository as member_repository
 import repositories.lesson_repository as lesson_repository
+import repositories.booking_repository as booking_repository
 
 member_repository.delete_all()
 lesson_repository.delete_all()
@@ -14,12 +15,17 @@ member1 = Member('Zubillaga', 'Carlos', 'premium')
 member2 = Member('Webber', 'Oscar', 'standard')
 lesson1 = Lesson('29/08/2021', '14:00', 'Spin Class', 50, 25)
 lesson2 = Lesson('29/08/2021', '15:30', 'Yoga Class', 45, 25)
+booking1 = Booking(member1, lesson2)
 
 member_repository.save(member1)
 member_repository.save(member2)
 
 lesson_repository.save(lesson1)
 lesson_repository.save(lesson2)
+
+booking_repository.save(booking1)
+
+
 
 # lesson_repository.delete(lesson1)
 
