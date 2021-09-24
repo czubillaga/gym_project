@@ -14,3 +14,18 @@ def save(booking):
     results = run_sql(sql, values)
     booking.id = results[0]['id']
     return booking
+
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)
+
+def select_all():
+    bookings = []
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+    for row in results:
+        lesson = lesson_repository.select(row['lesson_id'])
+        member = member_repository.select(row['member_id'])
+        booking = Booking(member, lesson, row['id'])
+        bookings.append(booking)
+    return bookings
