@@ -1,3 +1,4 @@
+from models.member import Member
 from pdb import run
 from db.run_sql import run_sql
 
@@ -41,3 +42,13 @@ def update(lesson):
     sql = "UPDATE lessons SET (date, time, description, duration, capacity) = (%s, %s, %s, %s, %s) WHERE id=%s"
     values = [lesson.date, lesson.time, lesson.description, lesson.duration, lesson.capacity, lesson.id]
     run_sql(sql, values)
+
+def members(lesson):
+    members = []
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE lesson_id=%s"
+    values =[lesson.id]
+    results = run_sql(sql, values)
+    for row in results:
+        member = Member(row['last'], row['first'], row['type'], row['id'])
+        members.append(member)
+    return members
