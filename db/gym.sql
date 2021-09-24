@@ -13,8 +13,8 @@ CREATE TABLE lessons (
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
-    first VARCHAR,
-    last VARCHAR, 
+    last VARCHAR,
+    first VARCHAR, 
     type VARCHAR
 );
 

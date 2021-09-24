@@ -1,6 +1,7 @@
 class Member: 
 
-    def __init__(self, name, type, id):
-        self.name = name 
+    def __init__(self, last, first, type, id = None):
+        self.last = last
+        self.first = first
         self.type = type
         self.id = id
