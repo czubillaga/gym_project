@@ -15,9 +15,23 @@ def save(booking):
     booking.id = results[0]['id']
     return booking
 
+def delete(booking):
+    sql = "DELETE FROM bookings WHERE id=%s"
+    values = [booking.id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
+
+def select(id):
+    sql = "SELECT * from bookings WHERE id=%s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    member = member_repository.select(result['member_id'])
+    lesson = lesson_repository.select(result['lesson_id'])
+    booking = Booking(member, lesson, result['id'])
+    return booking
 
 def select_all():
     bookings = []
@@ -29,3 +43,8 @@ def select_all():
         booking = Booking(member, lesson, row['id'])
         bookings.append(booking)
     return bookings
+
+def update(booking):
+    sql = "UPDATE bookings SET (lesson_id, member_id) = (%s,%s) WHERE id=%s"
+    values = [booking.lesson.id, booking.member.id, booking.id]
+    run_sql(sql, values)

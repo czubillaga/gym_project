@@ -28,10 +28,17 @@ lesson_repository.save(lesson2)
 booking_repository.save(booking1)
 booking_repository.save(booking2)
 
-all_bookings = booking_repository.select_all()
+booking1.lesson = lesson1
+booking_repository.update(booking1)
 
-for booking in all_bookings:
-    print(booking.__dict__)
+booking = booking_repository.select(booking1.id)
+print(booking.lesson.description)
+# booking_repository.delete(booking1)
+
+# all_bookings = booking_repository.select_all()
+
+# for booking in all_bookings:
+#     print(booking.__dict__)
 
 # lesson_repository.delete(lesson1)
 
