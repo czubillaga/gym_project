@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="lesson">
+        <p>Date: {{ lesson.date }}</p>
+        <p>Time: {{ lesson.time }}</p>
+        <p>Description: {{ lesson.description }}</p>
+        <p>Duration: {{ lesson.duration }} minutes</p>
+        <p>Capacity: {{ lesson.capacity }}</p>
+    </div>
+{% endblock content %}
