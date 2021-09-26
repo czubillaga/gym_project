@@ -6,4 +6,5 @@
         <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
     </div>
     {% endfor %}
+    <a href="/bookings/new"><button>New Booking</button></a>
 {% endblock content %}

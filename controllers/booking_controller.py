@@ -16,3 +16,19 @@ def bookings():
 def show_booking(id):
     booking = booking_repository.select(id)
     return render_template('/bookings/show.html', title = "Booking", booking = booking)
+
+@bookings_blueprint.route('/bookings/new')
+def new_booking():
+    members = member_repository.select_all()
+    lessons = lesson_repository.select_all()
+    return render_template('/bookings/new.html', title="New Booking", members=members, lessons=lessons)
+
+@bookings_blueprint.route('/bookings', methods=["POST"])
+def post_booking():
+    member_id = request.form['member_id']
+    lesson_id = request.form['lesson_id']
+    member = member_repository.select(member_id)
+    lesson = lesson_repository.select(lesson_id)
+    booking = Booking(member, lesson)
+    booking_repository.save(booking)
+    return redirect('/bookings')
