@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Booking Details</h3>
+    <p>Member: <a href="/members/show/{{ booking.member.id }}">{{ booking.member.last }}, {{ booking.member.first }}</a></p>
+    <p>Class: <a href="/lessons/show/{{ booking.lesson.id }}">{{ booking.lesson.description }}</a></p>
+    <p>Booking ID: {{ booking.id }}</p>
+{% endblock content %}

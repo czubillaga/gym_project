@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h3>All Members</h3>
     {% for member  in members %}
         <div>
             <a href="/members/show/{{ member.id }}"><p>{{ member.last }}, {{ member.first }}</p></a>

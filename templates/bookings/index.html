@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>All Bookings</h3>
+    {% for booking in bookings %}
+    <div>
+        <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
+    </div>
+    {% endfor %}
+{% endblock content %}
