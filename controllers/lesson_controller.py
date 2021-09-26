@@ -10,7 +10,7 @@ def upcoming():
     lessons = lesson_repository.select_all()
     return render_template('lessons/index.html', title='Upcoming', lessons=lessons)
 
-@lessons_blueprint.route('/show/<id>')
+@lessons_blueprint.route('/lessons/show/<id>')
 def show(id):
     lesson = lesson_repository.select(id)
     return render_template('lessons/show.html', title=lesson.description, lesson=lesson)

@@ -3,7 +3,7 @@
     <h2>Upcoming Classes</h2>
     {% for lesson in lessons  %}
         <div class="lesson">
-            <a href="show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
+            <a href="/lessons/show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
         </div>        
     {% endfor %}
 {% endblock content %}
