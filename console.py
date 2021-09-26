@@ -59,8 +59,8 @@ for lesson in lessons:
 lesson = lesson_repository.select(lesson2.id)
 # print(lesson.__dict__)
 
-member2.type = 'premium'
-member_repository.update(member2)
+# member2.type = 'premium'
+# member_repository.update(member2)
 
 member = member_repository.select(member2.id)
 # print(member.__dict__)

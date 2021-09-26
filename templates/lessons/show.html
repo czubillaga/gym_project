@@ -6,5 +6,11 @@
         <p>Description: {{ lesson.description }}</p>
         <p>Duration: {{ lesson.duration }} minutes</p>
         <p>Capacity: {{ lesson.capacity }}</p>
+        <p>Members Booked:</p>
+        {% for member in members %}
+        <div>
+            <a href="/members/show/{{ member.id }}">{{ member.last }}, {{ member.first }}</a>
+        </div>
+        {% endfor %}
     </div>
 {% endblock content %}

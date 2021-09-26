@@ -13,4 +13,5 @@ def upcoming():
 @lessons_blueprint.route('/lessons/show/<id>')
 def show(id):
     lesson = lesson_repository.select(id)
-    return render_template('lessons/show.html', title=lesson.description, lesson=lesson)
+    members = lesson_repository.members(lesson)
+    return render_template('lessons/show.html', title=lesson.description, lesson=lesson, members=members)
