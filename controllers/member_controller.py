@@ -15,3 +15,16 @@ def show_member(id):
     member = member_repository.select(id)
     lessons = member_repository.lessons(member)
     return render_template('members/show.html', title=member.first + member.last, member=member, lessons=lessons)
+
+@members_blueprint.route('/members/new')
+def new_member():
+    return render_template('/members/new.html', title="New Member")
+
+@members_blueprint.route('/members', methods=["POST"])
+def post_member():
+    first = request.form['first']
+    last = request.form['last']
+    type = request.form['type']
+    member = Member(last, first, type)
+    member_repository.save(member)
+    return redirect('/members')
