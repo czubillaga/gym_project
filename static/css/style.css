@@ -2,6 +2,7 @@ body {
     background-color: #333;
     color: white;
     text-align: center;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .header {
@@ -29,5 +30,9 @@ body {
 a, a:visited {
     color: white;
     text-decoration: none;
+}
+
+button {
+    font-family: 'Bebas Neue', cursive;
 }
 

@@ -32,3 +32,9 @@ def post_booking():
     booking = Booking(member, lesson)
     booking_repository.save(booking)
     return redirect('/bookings')
+
+@bookings_blueprint.route('/bookings/cancel/<id>')
+def cancel_booking(id):
+    booking = booking_repository.select(id)
+    booking_repository.delete(booking)
+    return redirect('/bookings')

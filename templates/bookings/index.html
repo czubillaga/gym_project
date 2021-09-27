@@ -4,6 +4,9 @@
     {% for booking in bookings %}
     <div class="nav-link">
         <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
+        <div>
+            <a href="/bookings/cancel/{{ booking.id }}"><button>Cancel</button></a>
+        </div>
     </div>
     {% endfor %}
     <a href="/bookings/new"><button>New Booking</button></a>
