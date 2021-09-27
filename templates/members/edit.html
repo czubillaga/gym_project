@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Edit Member</h3>
+        <form action="/members/{{ member.id }}" method="POST">
+        <label for="first">First Name:</label><br>
+        <input type="text" name="first" id="first" value="{{ member.first }}"><br>
+        <label for="last">Last Name:</label><br>
+        <input type="text" name="last" id="last" value="{{ member.last }}"><br><br>
+        <label for="type">Membership Type:</label>
+        <select name="type" id="type">
+            <option value="premium" {% if member.type == 'premium' %} selected="selected" {% endif %}>Premium</option>
+            <option value="standard" {% if member.type == 'standard' %} selected="selected" {% endif %}>Standard</option>
+        </select><br><br>
+        <button type="submit">Submit Changes</button>
+    </form>
+
+{% endblock content %}

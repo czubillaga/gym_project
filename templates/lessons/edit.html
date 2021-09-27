@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Edit Class</h3>
+    <form action="/lessons/{{ lesson.id }}" method="POST">
+        <label for="date">Date:</label><br>
+        <input type="date" name="date" id="date" value="{{ lesson.date }}"><br>
+        <label for="time">Time:</label><br>
+        <input type="time" name="time" id="time" value="{{ lesson.time }}"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" name="description" id="description" value="{{ lesson.description }}"><br>
+        <label for="duration">Duration (in minutes):</label><br>
+        <input type="number" name="duration" id="duration" value="{{ lesson.duration }}"><br>
+        <label for="capacity">Capacity:</label><br>
+        <input type="number" name="capacity" id="capacity" value="{{ lesson.capacity }}"><br><br>
+        <button type="submit">Submit Changes</button>
+    </form>
+{% endblock content %}

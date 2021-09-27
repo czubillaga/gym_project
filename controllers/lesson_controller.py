@@ -30,3 +30,19 @@ def post_lesson():
     lesson = Lesson(date, time, description, duration, capacity)
     lesson_repository.save(lesson)
     return redirect('/upcoming')
+
+@lessons_blueprint.route('/lessons/edit/<id>', methods=["GET"])
+def edit_lesson(id):
+    lesson = lesson_repository.select(id)
+    return render_template('lessons/edit.html', title="Edit Class", lesson=lesson)
+
+@lessons_blueprint.route('/lessons/<id>', methods=["POST"])
+def update_lesson(id):
+    date = request.form['date']
+    time = request.form['time']
+    description = request.form['description']
+    duration = request.form['duration']
+    capacity = request.form['capacity']
+    lesson = Lesson(date, time, description, duration, capacity, id)
+    lesson_repository.update(lesson)
+    return redirect('/upcoming')

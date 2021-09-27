@@ -12,6 +12,7 @@
             <div>
                 <a href="/lessons/show/{{ lesson. id }}">{{ lesson.description }}</a>
             </div>
-        {% endfor %}
+        {% endfor %}<br><br>
+        <a href="/members/edit/{{ member.id }}"><button>Edit Member</button></a>
     </div>
 {% endblock content %}

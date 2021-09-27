@@ -28,3 +28,17 @@ def post_member():
     member = Member(last, first, type)
     member_repository.save(member)
     return redirect('/members')
+
+@members_blueprint.route('/members/edit/<id>', methods=["GET"])
+def edit_member(id):
+    member = member_repository.select(id)
+    return render_template('/members/edit.html', title="Edit Member", member=member)
+
+@members_blueprint.route('/members/<id>', methods=["POST"])
+def update_member(id):
+    first = request.form['first']
+    last = request.form['last']
+    type = request.form['type']
+    member = Member(last, first, type, id)
+    member_repository.update(member)
+    return redirect('/members')

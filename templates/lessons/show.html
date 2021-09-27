@@ -11,6 +11,7 @@
         <div>
             <a href="/members/show/{{ member.id }}">{{ member.last }}, {{ member.first }}</a>
         </div>
-        {% endfor %}
+        {% endfor %}<br>
+        <a href="/lessons/edit/{{ lesson.id }}"><button>Edit Class</button></a>
     </div>
 {% endblock content %}
