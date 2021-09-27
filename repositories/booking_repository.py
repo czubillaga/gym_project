@@ -13,6 +13,8 @@ def save(booking):
     values = [booking.lesson.id, booking.member.id]
     results = run_sql(sql, values)
     booking.id = results[0]['id']
+    booking.lesson.booked += 1
+    lesson_repository.update(booking.lesson)
     return booking
 
 def delete(booking):

@@ -5,8 +5,8 @@ from db.run_sql import run_sql
 from models.lesson import Lesson
 
 def save(lesson):
-    sql = "INSERT INTO lessons (date, time, description, duration, capacity) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [lesson.date, lesson.time, lesson.description, lesson.duration, lesson.capacity]
+    sql = "INSERT INTO lessons (date, time, description, duration, capacity, booked) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [lesson.date, lesson.time, lesson.description, lesson.duration, lesson.capacity, 0]
     results = run_sql(sql, values)
     lesson.id = results[0]['id']
     return lesson
@@ -17,7 +17,7 @@ def select_all():
 
     lessons = []
     for row in results:
-        lesson = Lesson(row['date'], row['time'], row['description'], row['duration'], row['capacity'], row['id'])
+        lesson = Lesson(row['date'], row['time'], row['description'], row['duration'], row['capacity'], row['booked'], row['id'])
         lessons.append(lesson)
     return lessons
 
@@ -25,7 +25,7 @@ def select(id):
     sql = "SELECT * FROM lessons WHERE id=%s"
     values = [id]
     result = run_sql(sql, values)[0]
-    lesson = Lesson(result['date'], result['time'], result['description'], result['duration'], result['capacity'], result['id'])
+    lesson = Lesson(result['date'], result['time'], result['description'], result['duration'], result['capacity'], result['booked'], result['id'])
     return lesson
     
 
@@ -39,8 +39,8 @@ def delete(lesson):
     run_sql(sql,values)
 
 def update(lesson):
-    sql = "UPDATE lessons SET (date, time, description, duration, capacity) = (%s, %s, %s, %s, %s) WHERE id=%s"
-    values = [lesson.date, lesson.time, lesson.description, lesson.duration, lesson.capacity, lesson.id]
+    sql = "UPDATE lessons SET (date, time, description, duration, capacity, booked) = (%s, %s, %s, %s, %s, %s) WHERE id=%s"
+    values = [lesson.date, lesson.time, lesson.description, lesson.duration, lesson.capacity, lesson.booked, lesson.id]
     run_sql(sql, values)
 
 def members(lesson):

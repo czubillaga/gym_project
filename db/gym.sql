@@ -8,7 +8,8 @@ CREATE TABLE lessons (
     time TIME,
     description VARCHAR (255),
     duration INT,
-    capacity INT
+    capacity INT,
+    booked INT
 );
 
 CREATE TABLE members (
