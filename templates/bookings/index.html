@@ -5,7 +5,7 @@
     <div class="nav-link">
         <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
         <div>
-            <a href="/bookings/cancel/{{ booking.id }}"><button>Cancel</button></a>
+            <a href="/bookings/cancel/{{ booking.id }}"><button class="delete">Cancel</button></a>
         </div>
     </div>
     {% endfor %}
