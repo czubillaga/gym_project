@@ -5,3 +5,9 @@
 .nav-link {
     margin: 1vw;
 }
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+}

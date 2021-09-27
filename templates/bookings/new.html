@@ -8,7 +8,7 @@
             {% for member in members %}
                 <option value="{{ member.id }}">{{ member.first }} {{ member.last }}</option>
             {% endfor %}
-            </select>
+            </select><br><br>
             <label for="lesson">Select a Class</label>
             <select name="lesson_id" id="lesson">
             {% for lesson in lessons %}
@@ -16,7 +16,7 @@
                     <option value="{{ lesson.id }}">{{ lesson.description }}</option>
                 {% endif %}
             {% endfor %}
-            </select>
+            </select><br><br>
             <button type="submit">Book</button>
         </form>
     </div>
