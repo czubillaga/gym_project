@@ -4,8 +4,8 @@ DROP TABLE lessons;
 
 CREATE TABLE lessons (
     id SERIAL PRIMARY KEY,
-    date VARCHAR(255),
-    time VARCHAR(255),
+    date DATE,
+    time TIME,
     description VARCHAR (255),
     duration INT,
     capacity INT
