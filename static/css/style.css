@@ -1,9 +1,23 @@
+body {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
 .header {
     display: flex;
 }
 
 .nav-link {
     margin: 1vw;
+    display: flex;
+    background-color:rgb(99, 87, 87);
+    color: white;
+    padding: 1vw;
+}
+
+.nav-link:hover {
+    background-color: darkslategrey;
 }
 
 .navbar {
@@ -11,3 +25,13 @@
     background-color: #333;
     font-family: Arial;
 }
+
+.plus-sign {
+    margin-left: 1vw;
+}
+
+a, a:visited {
+    color: white;
+    text-decoration: none;
+}
+

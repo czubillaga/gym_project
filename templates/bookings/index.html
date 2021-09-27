@@ -2,7 +2,7 @@
 {% block content %}
     <h3>All Bookings</h3>
     {% for booking in bookings %}
-    <div>
+    <div class="nav-link">
         <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
     </div>
     {% endfor %}

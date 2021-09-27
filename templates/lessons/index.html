@@ -2,7 +2,7 @@
 {% block content %}
     <h2>Upcoming Classes</h2>
     {% for lesson in lessons  %}
-        <div class="lesson">
+        <div class="nav-link">
             <a href="/lessons/show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
         </div>        
     {% endfor %}
