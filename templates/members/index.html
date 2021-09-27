@@ -3,7 +3,10 @@
     <h3>All Members</h3>
     {% for member  in members %}
         <div class="nav-link">
-            <a href="/members/show/{{ member.id }}"><p>{{ member.last }}, {{ member.first }}</p></a>
+            <a href="/members/show/{{ member.id }}"><p>{{ member.last }}, {{ member.first }}</p></a><br>
+            <div>
+                <a href="/members/edit/{{ member.id }}"><button>Edit</button></a>
+            </div>
         </div>
     {% endfor %}
     <a href="/members/new"><button>Register Member</button></a>

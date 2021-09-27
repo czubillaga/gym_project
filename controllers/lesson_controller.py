@@ -43,6 +43,7 @@ def update_lesson(id):
     description = request.form['description']
     duration = request.form['duration']
     capacity = request.form['capacity']
-    lesson = Lesson(date, time, description, duration, capacity, id)
+    lesson = lesson_repository.select(id)
+    lesson = Lesson(date, time, description, duration, capacity, lesson.booked, id)
     lesson_repository.update(lesson)
     return redirect('/upcoming')

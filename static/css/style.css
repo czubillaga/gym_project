@@ -14,16 +14,12 @@ body {
     background-color:rgb(99, 87, 87);
     color: white;
     padding: 1vw;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .nav-link:hover {
     background-color: darkslategrey;
-}
-
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
 }
 
 .plus-sign {

@@ -4,6 +4,9 @@
     {% for lesson in lessons  %}
         <div class="nav-link">
             <a href="/lessons/show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
+            <div>
+                <a href="/lessons/edit/{{ lesson.id }}"><button>Edit</button></a>
+            </div>
         </div>        
     {% endfor %}
     <a href="/lessons/new"><button>Add Class</button></a>
