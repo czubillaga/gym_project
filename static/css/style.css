@@ -36,3 +36,44 @@ button {
     font-family: 'Bebas Neue', cursive;
 }
 
+form > input {
+    width: 60vw;
+    height: 2.5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2vw;
+    color: darkslategrey;
+    padding: .5vw;
+    border-radius: 10px;
+}
+
+form {
+    font-size: 2vw;
+}
+
+.container {
+    margin: auto;
+}
+
+h3 {
+    font-size: 3vw;
+}
+
+select {
+    width: 60vw;
+    height: 3vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5vw;
+    color: darkslategrey;
+    padding: .5vw;
+    border-radius: 10px;
+}
+
+.submit {
+    width: 40vw;
+    height: 3vw;
+    font-size: 1.5vw;
+}

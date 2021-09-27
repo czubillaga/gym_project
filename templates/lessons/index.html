@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Upcoming Classes</h2>
+    <h3>Upcoming Classes</h3>
     {% for lesson in lessons  %}
         <div class="nav-link">
             <a href="/lessons/show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
@@ -9,5 +9,5 @@
             </div>
         </div>        
     {% endfor %}
-    <a href="/lessons/new"><button>Add Class</button></a>
+    <a href="/lessons/new"><button class="submit">Add Class</button></a>
 {% endblock content %}
