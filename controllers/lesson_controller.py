@@ -54,4 +54,4 @@ def book_lesson(id):
     lesson_selected = lesson_repository.select(id)
     lessons = lesson_repository.select_all()
     members = member_repository.select_all()
-    return render_template('/bookings/book_lesson.html', title ="Book {{ lesson.description }}", lesson_selected = lesson_selected, lessons = lessons, members = members)
+    return render_template('/bookings/book_lesson.html', title ="Book " + lesson_selected.description, lesson_selected = lesson_selected, lessons = lessons, members = members)
