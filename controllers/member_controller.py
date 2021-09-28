@@ -17,7 +17,7 @@ def members():
 def show_member(id):
     member = member_repository.select(id)
     lessons = member_repository.lessons(member)
-    return render_template('members/show.html', title=member.first + member.last, member=member, lessons=lessons)
+    return render_template('members/show.html', title=member.first + " " + member.last, member=member, lessons=lessons)
 
 @members_blueprint.route('/members/new')
 def new_member():
@@ -57,4 +57,7 @@ def book_member(id):
 def cancel_booking(member_id, lesson_id):
     booking = booking_repository.select_by_member_lesson_id(member_id, lesson_id)
     booking_repository.delete(booking)
+    lesson = lesson_repository.select(lesson_id)
+    lesson.booked -= 1
+    lesson_repository.update(lesson)
     return redirect(f'/members/show/{member_id}')

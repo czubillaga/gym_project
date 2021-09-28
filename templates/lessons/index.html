@@ -5,7 +5,7 @@
         <div class="nav-link">
             <a href="/lessons/show/{{ lesson.id }}"><p>{{ lesson.description }}</p></a>
             <div>
-                <a href="/lessons/book/{{ lesson.id }}"><button class="book">Book</button></a>
+                <a href="/lessons/book/{{ lesson.id }}"><button class="book" {% if lesson.booked == lesson.capacity %} disabled style="background-color: darkgray; color: white;"{% endif %}>Book</button></a>
                 <a href="/lessons/edit/{{ lesson.id }}"><button class="edit">Edit</button></a>
             </div>
         </div>        

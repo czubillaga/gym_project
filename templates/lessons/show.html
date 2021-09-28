@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h3>{{ lesson.description }}</h3>
     <div class="lesson">
         <div class="nav-link">
             <p>Date:</p> <p>{{ lesson.date }}</p>
@@ -16,7 +17,7 @@
         <div class="nav-link">
             <p>Capacity:</p> <p>{{ lesson.capacity }}</p>
         </div>
-        <p>Members Booked:</p>
+        <h2>Members Booked:</h2>
         {% for member in members %}
         <div class="nav-link">
             <a href="/members/show/{{ member.id }}">{{ member.last }}, {{ member.first }}</a>

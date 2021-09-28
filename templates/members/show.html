@@ -14,7 +14,7 @@
         <div class="nav-link">
             <p>ID:</p> <p>{{ member.id }}</p>
         </div>
-        <p>Classes Booked:</p>
+        <h2>Classes Booked:</h2>
         {% for lesson in lessons %}
             <div class="nav-link">
                 <a href="/lessons/show/{{ lesson.id }}">{{ lesson.description }}</a>

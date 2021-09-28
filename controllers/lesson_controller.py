@@ -61,4 +61,7 @@ def book_lesson(id):
 def cancel_booking(member_id, lesson_id):
     booking = booking_repository.select_by_member_lesson_id(member_id, lesson_id)
     booking_repository.delete(booking)
+    lesson = lesson_repository.select(lesson_id)
+    lesson.booked -= 1
+    lesson_repository.update(lesson)
     return redirect(f"/lessons/show/{lesson_id}")
