@@ -5,8 +5,8 @@
         <div class="nav-link">
             <a href="/members/show/{{ member.id }}"><p>{{ member.last }}, {{ member.first }}</p></a><br>
             <div>
-                <a href="/members/book/{{ member.id }}"><button>Book</button></a>
-                <a href="/members/edit/{{ member.id }}"><button>Edit</button></a>
+                <a href="/members/book/{{ member.id }}"><button class="book">Book</button></a>
+                <a href="/members/edit/{{ member.id }}"><button class="edit">Edit</button></a>
             </div>
         </div>
     {% endfor %}

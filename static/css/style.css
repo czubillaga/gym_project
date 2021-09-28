@@ -96,9 +96,32 @@ select {
 .delete {
     background-color: rgb(170, 28, 28);
     color: white;
+    padding: 1vw;
 }
 
 .delete:hover {
     background-color: white;
     color: black;
+}
+
+.book {
+    background-color: mediumseagreen;
+    color: white;
+    padding: 1vw;
+}
+
+.book:hover {
+    background-color: white;
+    color: black;
+}
+
+.edit {
+    background-color: white;
+    color: black;
+    padding: 1vw;
+}
+
+.edit:hover {
+    background-color: black;
+    color: white;
 }

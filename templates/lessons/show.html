@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="lesson">
-        <p>Date: {{ lesson.date }}</p>
-        <p>Time: {{ lesson.time }}</p>
-        <p>Description: {{ lesson.description }}</p>
-        <p>Duration: {{ lesson.duration }} minutes</p>
-        <p>Capacity: {{ lesson.capacity }}</p>
+        <div class="nav-link">
+            <p>Date:</p> <p>{{ lesson.date }}</p>
+        </div>
+        <div class="nav-link">
+            <p>Time:</p> <p>{{ lesson.time }}</p>
+        </div>
+        <div class="nav-link">
+            <p>Description:</p> <p>{{ lesson.description }}</p>
+        </div>
+        <div class="nav-link">
+            <p>Duration:</p> <p>{{ lesson.duration }} minutes</p>
+        </div>
+        <div class="nav-link">
+            <p>Capacity:</p> <p>{{ lesson.capacity }}</p>
+        </div>
         <p>Members Booked:</p>
         {% for member in members %}
-        <div>
+        <div class="nav-link">
             <a href="/members/show/{{ member.id }}">{{ member.last }}, {{ member.first }}</a>
         </div>
         {% endfor %}<br>
-        <a href="/lessons/edit/{{ lesson.id }}"><button>Edit Class</button></a>
+        <a href="/lessons/edit/{{ lesson.id }}"><button class="submit">Edit Class</button></a>
     </div>
 {% endblock content %}
