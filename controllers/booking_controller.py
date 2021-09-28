@@ -40,4 +40,7 @@ def post_booking():
 def cancel_booking(id):
     booking = booking_repository.select(id)
     booking_repository.delete(booking)
+    lesson = lesson_repository.select(booking.lesson.id)
+    lesson.booked -= 1
+    lesson_repository.update(lesson)
     return redirect('/bookings')
