@@ -53,4 +53,8 @@ def book_member(id):
     member_selected = member_repository.select(id)
     return render_template('members/book_member.html', title = "Book " + member_selected.first, lessons=lessons, members=members, member_selected = member_selected)
 
-
+@members_blueprint.route('/members/cancel_booking/<member_id>/<lesson_id>')
+def cancel_booking(member_id, lesson_id):
+    booking = booking_repository.select_by_member_lesson_id(member_id, lesson_id)
+    booking_repository.delete(booking)
+    return redirect(f'/members/show/{member_id}')

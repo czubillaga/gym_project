@@ -18,6 +18,7 @@
         {% for lesson in lessons %}
             <div class="nav-link">
                 <a href="/lessons/show/{{ lesson.id }}">{{ lesson.description }}</a>
+                <a href="/members/cancel_booking/{{ member.id }}/{{ lesson.id }}"><button class="delete">Cancel Booking</button></a>
             </div>
         {% endfor %}<br><br>
         <a href="/members/edit/{{ member.id }}"><button class="submit">Edit Member</button></a>
