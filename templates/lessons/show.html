@@ -20,6 +20,7 @@
         {% for member in members %}
         <div class="nav-link">
             <a href="/members/show/{{ member.id }}">{{ member.last }}, {{ member.first }}</a>
+            <a href="/lessons/cancel_booking/{{ member.id }}/{{ lesson.id }}"><button class="delete">Cancel Booking</button></a>
         </div>
         {% endfor %}<br>
         <a href="/lessons/edit/{{ lesson.id }}"><button class="submit">Edit Class</button></a>

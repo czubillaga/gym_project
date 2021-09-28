@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from flask.helpers import url_for
 from models.member import Member
 import repositories.member_repository as member_repository
 import repositories.lesson_repository as lesson_repository
+import repositories.booking_repository as booking_repository
 
 members_blueprint = Blueprint('members', __name__)
 
@@ -50,3 +52,5 @@ def book_member(id):
     members = member_repository.select_all()
     member_selected = member_repository.select(id)
     return render_template('members/book_member.html', title = "Book " + member_selected.first, lessons=lessons, members=members, member_selected = member_selected)
+
+

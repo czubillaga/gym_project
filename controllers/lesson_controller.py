@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.lesson import Lesson
 import repositories.lesson_repository as lesson_repository
 import repositories.member_repository as member_repository
+import repositories.booking_repository as booking_repository
 
 lessons_blueprint = Blueprint('lessons', __name__)
 
@@ -55,3 +56,9 @@ def book_lesson(id):
     lessons = lesson_repository.select_all()
     members = member_repository.select_all()
     return render_template('/bookings/book_lesson.html', title ="Book " + lesson_selected.description, lesson_selected = lesson_selected, lessons = lessons, members = members)
+
+@lessons_blueprint.route('/lessons/cancel_booking/<member_id>/<lesson_id>')
+def cancel_booking(member_id, lesson_id):
+    booking = booking_repository.select_by_member_lesson_id(member_id, lesson_id)
+    booking_repository.delete(booking)
+    return redirect(f"/lessons/show/{lesson_id}")

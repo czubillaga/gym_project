@@ -50,3 +50,13 @@ def update(booking):
     sql = "UPDATE bookings SET (lesson_id, member_id) = (%s,%s) WHERE id=%s"
     values = [booking.lesson.id, booking.member.id, booking.id]
     run_sql(sql, values)
+
+def select_by_member_lesson_id(member_id, lesson_id):
+    sql = "SELECT * FROM bookings WHERE member_id=%s AND lesson_id=%s"
+    values = [member_id, lesson_id]
+    result = run_sql(sql, values)
+    booking_id = result[0]['id']
+    member = member_repository.select(member_id)
+    lesson = lesson_repository.select(lesson_id)
+    booking = Booking(member, lesson, booking_id)
+    return booking 

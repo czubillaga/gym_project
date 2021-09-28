@@ -26,7 +26,6 @@ member_repository.save(member2)
 lesson_repository.save(lesson1)
 lesson_repository.save(lesson2)
 
-print(lesson1.id)
 
 booking_repository.save(booking1)
 booking_repository.save(booking2)
@@ -57,6 +56,9 @@ booking_repository.save(booking3)
 lessons = member_repository.lessons(member1)
 for lesson in lessons:
     print(lesson.__dict__)
+
+booking = booking_repository.select_by_member_lesson_id(member1.id, lesson1.id)
+print(booking.__dict__)
 
 lesson = lesson_repository.select(lesson2.id)
 # print(lesson.__dict__)
