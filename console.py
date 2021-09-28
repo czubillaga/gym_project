@@ -26,6 +26,8 @@ member_repository.save(member2)
 lesson_repository.save(lesson1)
 lesson_repository.save(lesson2)
 
+print(lesson1.id)
+
 booking_repository.save(booking1)
 booking_repository.save(booking2)
 booking_repository.save(booking3)
