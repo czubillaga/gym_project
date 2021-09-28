@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
     <div>
-        <p>Name: {{ member.first }} {{ member.last }}</p> 
-            <p>Membership Type:
+        <div class="nav-link">
+            <p>Name:</p> <p>{{ member.first }} {{ member.last }}</p> 
+        </div>
+        <div class="nav-link">
+            <p>Membership Type:</p>
+            <p>
                 {% if member.type == 'premium' %} Premium{% endif %} 
                 {% if member.type == 'standard' %} Standard{% endif %}
             </p>
-        <p>ID: {{ member.id }}</p>
+        </div>
+        <div class="nav-link">
+            <p>ID:</p> <p>{{ member.id }}</p>
+        </div>
         <p>Classes Booked:</p>
         {% for lesson in lessons %}
-            <div>
+            <div class="nav-link">
                 <a href="/lessons/show/{{ lesson. id }}">{{ lesson.description }}</a>
             </div>
         {% endfor %}<br><br>
-        <a href="/members/edit/{{ member.id }}"><button>Edit Member</button></a>
+        <a href="/members/edit/{{ member.id }}"><button class="submit">Edit Member</button></a>
     </div>
 {% endblock content %}
