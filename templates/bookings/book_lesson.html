@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>New Booking</h3>
+    <div>
+        <form action="/bookings" method="POST">
+            <label for="member">Select a Member</label><br>
+            <select name="member_id" id="member">
+            {% for member in members %}
+                <option value="{{ member.id }}">{{ member.first }} {{ member.last }}</option>
+            {% endfor %}
+            </select><br><br>
+            <label for="lesson">Select a Class</label><br>
+            <select name="lesson_id" id="lesson">
+            {% for lesson in lessons %}
+                {% if lesson.booked < lesson.capacity %}
+                        <option value="{{ lesson.id }}" {% if  lesson.id == lesson_selected.id %} selected="selected" {% endif %}>{{ lesson.description }}</option>
+                {% endif %}
+            {% endfor %}
+            </select><br><br>
+            <button type="submit" class="submit">Book</button>
+        </form>
+    </div>
+{% endblock content %}

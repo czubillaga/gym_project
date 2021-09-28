@@ -6,12 +6,12 @@
         <input type="text" name="first" id="first" value="{{ member.first }}"><br>
         <label for="last">Last Name:</label><br>
         <input type="text" name="last" id="last" value="{{ member.last }}"><br><br>
-        <label for="type">Membership Type:</label>
+        <label for="type">Membership Type:</label><br>
         <select name="type" id="type">
             <option value="premium" {% if member.type == 'premium' %} selected="selected" {% endif %}>Premium</option>
             <option value="standard" {% if member.type == 'standard' %} selected="selected" {% endif %}>Standard</option>
         </select><br><br>
-        <button type="submit">Submit Changes</button>
+        <button type="submit" class="submit">Submit Changes</button>
     </form>
 
 {% endblock content %}

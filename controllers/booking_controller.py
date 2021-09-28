@@ -30,7 +30,10 @@ def post_booking():
     member = member_repository.select(member_id)
     lesson = lesson_repository.select(lesson_id)
     booking = Booking(member, lesson)
-    booking_repository.save(booking)
+    try:
+        booking_repository.save(booking)
+    except:
+        return redirect('/bookings')
     return redirect('/bookings')
 
 @bookings_blueprint.route('/bookings/cancel/<id>')

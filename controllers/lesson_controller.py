@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.lesson import Lesson
 import repositories.lesson_repository as lesson_repository
+import repositories.member_repository as member_repository
 
 lessons_blueprint = Blueprint('lessons', __name__)
 
@@ -47,3 +48,10 @@ def update_lesson(id):
     lesson = Lesson(date, time, description, duration, capacity, lesson.booked, id)
     lesson_repository.update(lesson)
     return redirect('/upcoming')
+
+@lessons_blueprint.route('/lessons/book/<id>')
+def book_lesson(id):
+    lesson_selected = lesson_repository.select(id)
+    lessons = lesson_repository.select_all()
+    members = member_repository.select_all()
+    return render_template('/bookings/book_lesson.html', title ="Book {{ lesson.description }}", lesson_selected = lesson_selected, lessons = lessons, members = members)
