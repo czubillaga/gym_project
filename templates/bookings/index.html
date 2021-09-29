@@ -3,7 +3,7 @@
     <h3>All Bookings</h3>
     {% for booking in bookings %}
     <div class="nav-link">
-        <a href="/bookings/show/{{ booking.id }}"><p>{{ booking.member.first }} booked a spot in {{ booking.lesson.description }}</p></a>
+        <a href="/bookings/show/{{ booking.id }}" style="text-align: left;"><p>Member Booked: {{ booking.member.first }}<br> Class Booked: {{ booking.lesson.description }}</p></a>
         <div>
             <a href="/bookings/cancel/{{ booking.id }}"><button class="delete">Cancel</button></a>
         </div>
