@@ -1,4 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Content goes here</h2>
+<i class="fas fa-dumbbell" style="font-size: 10vw; margin-top: 3vw;"></i>
+
+<a href="/members">
+    <div class='nav-link' id="home-link">
+        Members
+        <div class='plus-sign'>
+            <a href="/members/new"><button class="new" style="width: 2vw; height: 2vw;">&#43;</button></a>
+        </div>
+    </div>
+</a>
+<div class='nav-link' id="home-link">
+    <a href="/upcoming">Classes</a>
+    <div class='plus-sign'>
+        <a href="/lessons/new"><button class="new" style="width: 2vw; height: 2vw;">&#43;</button></a>
+    </div>
+</div>
+<div class='nav-link' id="home-link">
+    <a href="/bookings">Bookings</a>
+    <div class='plus-sign'>
+        <a href="/bookings/new"><button class="new" style="width: 2vw; height: 2vw;">&#43;</button></a>
+    </div>
+</div>
 {% endblock content %}
